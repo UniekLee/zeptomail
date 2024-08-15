@@ -1,8 +1,8 @@
 <?php
-namespace Transmail;
+namespace ZeptoMail;
 
 /**
- * Note: This library was created when this service was called Transmail
+ * Note: This library was created when this service was called ZeptoMail
  * Other than updating some wording for the new ZeptoMail branding 
  * and the new API endpoint, it remails largely unchanged
  * 
@@ -10,7 +10,7 @@ namespace Transmail;
 ZeptoMail / TransMail Sending Example:
 
 	//include file if not using autoloader
-	include_once ("./transmail/TransmailClient.php");
+	include_once ("./zeptomail/ZeptoMailClient.php");
 	
 	//create a new message object
 	$msg = new \stdClass();
@@ -34,7 +34,7 @@ ZeptoMail / TransMail Sending Example:
 	$msg->inline_images = NULL; //INLINE IMAGES (array)
 	
 	//instantiate library and pass info
-	$tmail = new \Transmail\TransmailClient($msg, "myapikey", "mybounce@address.com", TRUE);
+	$tmail = new \ZeptoMail\ZeptoMailClient($msg, "myapikey", "mybounce@address.com", TRUE);
 	
 	//send the message
 	$response = $tmail->send();
@@ -50,7 +50,7 @@ ZeptoMail / TransMail Sending Example:
 	
  */
 
-class TransmailClient{
+class ZeptoMailClient{
 	
 	//defaults
 	public $data = array();
@@ -62,8 +62,8 @@ class TransmailClient{
 		//connection settings
 		if ($key){
 			$this->key = $key;
-		} elseif (getenv('transmailkey')){
-			$this->key = getenv('transmailkey');
+		} elseif (getenv('zeptomailkey')){
+			$this->key = getenv('zeptomailkey');
 		} else {
 			if ($verbose){
 				return "ERROR: No TransMail API Key found";
